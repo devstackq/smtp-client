@@ -1,10 +1,8 @@
 package que
 
 import (
-	"fmt"
 	"time"
 
-	"github.com/devstackq/smtp-mailer/internal/models"
 	"github.com/devstackq/smtp-mailer/internal/service"
 	"github.com/gocelery/gocelery"
 	"github.com/gomodule/redigo/redis"
@@ -29,17 +27,8 @@ func CelerySendMail(mailer service.Mailer) {
 		5, // number of workers
 	)
 
-	//dry?
-	mail := models.Mail{
-		From:       "8akebaev@gmail.com",
-		Subject:    "Thread x",
-		Message:    "Hola amiGO!",
-		TmplTypeID: "63616c596c7b4bc739130641",
-	}
-
-	fmt.Println("send msg with cron")
 	// register task
-	cli.Register("worker.Send", mailer.Send(mail))
+	cli.Register("worker.Send", mailer.Send)
 
 	// start workers (non-blocking call)
 	cli.StartWorker()

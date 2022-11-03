@@ -19,8 +19,8 @@ const (
 	defaultPort  = "587"
 	defaultHost  = "smtp-relay.sendinblue.com"
 	connectURI   = "mongodb://localhost:27016"
-	testUsername = "8akebaev@gmail.com"
-	testPassword = "t8O0zvxD3XrbJpA7"
+	testUsername = ""
+	testPassword = ""
 
 	MONGO_DB_NAME      = "mailer"
 	MONGO_TEMPLATE_COL = "templates"

@@ -31,9 +31,6 @@ func main() {
 
 	h.Register()
 
-	//2.celery setup
-	//3. get smtp cred for test
-	//4. what does mena - отложеная рассылка ?
 	wg := sync.WaitGroup{}
 	wg.Add(1)
 	go func() {
