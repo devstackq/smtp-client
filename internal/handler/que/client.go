@@ -9,7 +9,7 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
-func cleint() {
+func ClientMailer() {
 
 	// create redis connection pool
 	redisPool := &redis.Pool{
@@ -35,7 +35,6 @@ func cleint() {
 		&gocelery.RedisCeleryBackend{Pool: redisPool},
 		1,
 	)
-
 	// prepare arguments
 	taskName := "worker.Send"
 
@@ -55,7 +54,8 @@ func cleint() {
 	// get results from backend with timeout
 	res, err := asyncResult.Get(10 * time.Second)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return
 	}
 
 	fmt.Println(res, "result")

@@ -8,7 +8,7 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
-func CelerySendMail(mailer service.Mailer) {
+func WorkerMailer(mailer service.Mailer) {
 	// create redis connection pool
 	redisPool := &redis.Pool{
 		Dial: func() (redis.Conn, error) {
